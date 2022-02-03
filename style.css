@@ -1,0 +1,59 @@
+
+h1 {
+    font-size: 5em;
+    
+    font-family: Cambria;
+    color: green;
+    -webkit-text-stroke: 2px black;
+    margin: 0;
+}
+
+#profile_pic {
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#bio {
+
+}
+
+.container{
+    display: flex;
+    
+}
+
+.box{
+    width: 230px;
+    height: 300px;
+    background-color:darkorange;
+    margin: auto;
+    text-align: center;
+}
+
+.container div{
+    border:1px;
+    padding: 10px
+}
+
+.social-icon{
+    height: 110px;
+}
+
+body {
+    background-color: lightblue;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+div {
+    background-color: rgb(255, 230, 210);
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
