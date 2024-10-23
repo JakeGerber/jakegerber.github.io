@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <title>Jake's Website</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/smileyface.jpg" />
+    <script src="https://kit.fontawesome.com/dba9e690f0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header" style="background-image: url('images/header-background.jpg'); background-size: cover;">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Experience</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <i class="fas fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <h1>Hi, I'm <span>Jake Gerber</span></h1>
+                <p>Computer Science Student at UC Irvine</p>
+            </div>
+        </div>
+    </div>
+
+    <!--About-->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>I'm Jake, a computer science student UC Irvine! I'm passionate about full-stack software
+                        development!</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links" onClick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onClick="opentab('education')">Education</p>
+                        <p class="tab-links active-link" onClick="opentab('skills')">Skills</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Languages</span><br>Python, JavaScript, Lua, C#, Java, C++</li>
+                            <li><span>Tools/Frameworks</span><br>React.js, Node.js, Flask, Docker, MySQL, MongoDB,
+                                Linux, Nginx, REST APIs, Git</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>Software Engineer Intern (Virtual Reality)</span><br>BAE Systems</li>
+                            <li><span>WordPress Administrator</span><br>University of California, Irvine</li>
+
+                            <li><span>Programming Workshop Developer</span><br>Hack Club</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>B.S., Computer Science</span><br>University of California, Irvine</li>
+                            <li><span>Relevant Coursework</span><br></li>
+                            <li>- CS 122A - Introduction to Databases (MySQL)</li>
+                            <li>- CS 161 - Design and Analysis of Algorithms</li>
+                            <li>- ICS 32 - Programming with Software Libraries (Python)</li>
+                            <li>- ICS 33 - Intermediate Programming (Python)</li>
+                            <li>- ICS 45C - Programming in C/C++</li>
+                            <li>- ICS 45J - Programming in Java</li>
+                            <li>- Data Structure Implementation (C++)</li>
+                            <li>- ICS 6B - Boolean Logic and Discrete Structures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Services-->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">Work Experience</h1>
+            <div class="services-list">
+                <div>
+                    <img src="images/bae-systems.png" class="img-test">
+                    <h2 style="text-align: center;">Software Engineer Intern (Virtual Reality Team)<br>[BAE Systems]</h2>
+                    <h3 style="text-align: center;">June 2023 - September 2023<br/>Rockville, Maryland</h3>
+                    <br />
+                    <br />
+                    <ul>
+                        <li>
+                            <h3>Wrote scripts to extract and display metadata of CAD models and 360-images for virtual reality developers.</h3>
+                        <br>
+                        </li>
+                        <li>
+                            <h3>Migrated submarine safety data from Excel into a MySQL database.</h3>
+                        <br>
+                        </li>
+                        <li>
+                            <h3>Created dashboards showing the distribution of submarine part manufacturers.</h3>
+                        <br>
+                        </li>
+                        <li>
+                            <h3>Skills: Lua, Python (Pandas, RegEx, Matplotlib), SQL</h3>
+                        </li>
+                    </ul>               
+                </div>
+                <div>
+                    <img src="images/uci_ovptl.jpg" class="img-test">
+                    <h2 style="text-align: center;">WordPress Administrator<br>[UC Irvine]</h2>
+                    <h3 style="text-align: center;">April 2023 - June 2024<br/>Irvine, California</h3>
+                    <ul>
+                        <li>
+                            <h3>Built, migrated, and maintained 50+ WordPress sites for OVPTL office at UC Irvine.</h3>
+                        <br>
+                        </li>
+                        <li>
+                            <h3>Skills: WordPress, HTML, CSS, Divi.</h3>
+                        </li>
+                    </ul>               
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">Projects</h1>
+            <div class="services-list">
+                <div>
+                    <img src="images/steam-game-compiler.png" class="img-test">
+                    <h2 class="centerimg">Full-Stack Steam Statistics App</h2>
+                    <li>Developed a React.js frontend and Flask backend app using Steam’s API to digest game statistics.</li>
+                    <li>Deployed to a Linux server using Nginx and Waitress.</li>
+                    <a href="https://devpost.com/software/steam-search-engine">-Website-</a>
+                    <a href="https://github.com/jrock-3/HackUCIWinter2022">-Github-</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <script>
+        var sidemeu = document.getElementById("sidemenu");
+
+        function openmenu() {
+            sidemeu.style.right = "0";
+        }
+        function closemenu() {
+            sidemeu.style.right = "-200px";
+        }
+    </script>
+
+</body>
+
+</html>

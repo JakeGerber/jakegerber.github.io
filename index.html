@@ -42,9 +42,10 @@
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
-                    <p>I'm Jake, a computer science student UC Irvine! I'm passionate about full-stack software
-                        development!</p>
+                    <h3>I'm Jake, a computer science student UC Irvine! I'm passionate about data and software
+                        development! Take a look at some of my experience and projects below!</h3>
 
+                    <!--
                     <div class="tab-titles">
                         <p class="tab-links" onClick="opentab('experience')">Experience</p>
                         <p class="tab-links" onClick="opentab('education')">Education</p>
@@ -79,6 +80,7 @@
                             <li>- ICS 6B - Boolean Logic and Discrete Structures</li>
                         </ul>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
@@ -89,93 +91,242 @@
         <div class="container">
             <h1 class="sub-title">Work Experience</h1>
             <div class="services-list">
+                <!-- BAE Systems Experience -->
                 <div>
                     <img src="images/bae-systems.png" class="img-test">
-                    <h2>Software Engineer Intern (Virtual Reality) @ BAE Systems</h2>
-                    <p>I was an engineer on the virtual reality development team at BAE Systems during the summer of
-                        2023!</p>
-                    <br />
-                    <p>Some Accomplishments:</p>
-                    <br />
-                    <li>Automated the visualization of MetaData associated with CAD models and image data associated
-                        with 360-degree images using Python and Lua scripts.</li>
-                    <br />
-                    <li>Developed Python scripts incorporating Pandas and RegEx to extract data from Excel sheets,
-                        populate MySQL databases, and visually represent the information through pie charts for users.
-                    </li>
-                    <br />
-                    <li>Transformed data from Excel, CSV, and text files into streamlined JSON using Python scripts.
-                        Parsed this data and displayed to users in the Visionary Render program using Lua scripts.
-                    </li>
+                    <h2 style="text-align: center;"><b>Software Engineer Intern</b><br>(Virtual Reality Team)<br>[BAE Systems]</h2>
+                    <h3 style="text-align: center;">June 2023 - September 2023<br/>Rockville, Maryland</h3>
+                    <br /><br />
+                    <ul>
+                        <li>
+                            <h3>Wrote scripts to extract and display metadata of CAD models and 360-images for virtual reality developers, allowing a greater understanding of the origin and creation of implemented assets in the Visionary Render VR program.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Migrated submarine safety data from multiple Excel sheets into a MySQL database which allowed for easier data retrieval and ensured that employees were accessing the most up-to-date data.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Created dashboards that showed the distribution of different submarine part manufacturers which allowed higher-ups to better plan their supply chain.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Skills: Lua, Python (Pandas, RegEx, Matplotlib), SQL</h3>
+                        </li>
+                    </ul>
                 </div>
+    
+                <!-- UC Irvine WordPress Experience -->
                 <div>
                     <img src="images/uci_ovptl.jpg" class="img-test">
-                    <br />
-                    <h2>WordPress Administrator @ UC Irvine</h2>
-                    <p>Manage 50+ WordPress sites frequently used by UC Irvine students and staff. Tasks include fixing
-                        broken links, adding content with Divi, and modifying CSS/HTML.</p>
-                    </p>
-                    <!--<a href="#">learn more</a>-->
+                    <h2 style="text-align: center;"><b>WordPress Administrator</b><br>[UC Irvine]</h2>
+                    <h3 style="text-align: center;">April 2023 - June 2024<br/>Irvine, California</h3>
+                    <br /><br />
+                    <ul>
+                        <li>
+                            <h3>Built, migrated, and maintained 50+ WordPress sites for OVPTL office to help UC Irvine students and staff access academic information, promote their work, and maintain an accessible web experience.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Skills: WordPress, HTML, CSS, Divi.</h3>
+                        </li>
+                    </ul>
                 </div>
+    
+                <!-- Hack Club Experience -->
+                <!-- Need to Update -->
                 <div>
                     <img src="images/hack_club.png" class="img-test">
-                    <br />
-                    <h2>Programming Workshop Developer @ Hack Club</h2>
-                    <li>Created a Discord Custom Message Bot Workshop utilizing JavaScript and Discord.js.</li>
-                    <li>Produced 10 programming workshops in C#, JavaScript, and Python used by 17,000 members.</li>
+                    <h2 style="text-align: center;"><b>Programming Workshop Developer</b><br>[Hack Club]</h2>
+                    <h3 style="text-align: center;">September 2020 - February 2021<br/>Remote</h3>
+                    <br /><br />
+                    <ul>
+                        <li>
+                            <h3>Produced 10 project workshops used by 39,000 high-school students to teach programming and technical skills.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Included a Discord Custom Message Bot Workshop, a Battleship Workshop, and a Drawing Program Workshop.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Skills: C#, JavaScript (Discord.js), Python (Turtle)</h3>
+                        </li>
+                    </ul>
 
-                    <span>
-                        <a href="https://workshops.hackclub.com/space_game/">Space Bar Games</a>: Python workshop that
-                        includes tutorials to make two space bar games!
-                    </span>
-
-                    <a href="https://www.youtube.com/">learn more</a>
+                    <ul class="isolated-icons">
+                        <a href="https://workshops.hackclub.com/" target="_blank">
+                            <img src="images/play.png" class="img-icon">
+                        </a>
+                    </ul> 
                 </div>
             </div>
         </div>
     </div>
-
+    
     <div id="portfolio">
         <div class="container">
             <h1 class="sub-title">Projects</h1>
             <div class="services-list">
+
+                <div>
+                    <img src="images/price-charting.png" class="img-test">
+                    <br />
+                    <h2 class="centerimg"><b>Video Game Analyzer / Price Tracker</b></h2>
+                    <ul>
+                        <li>
+                            <h3>Uploaded vintage video game cover photos are utilized to return key information that collectors use to make
+                                purchasing decisions. Information includes current market price, gaming system, and game developer.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Skills: AWS (S3 Buckets, Textract, DynamoDB), Python (OpenCV, BeautifulSoup, Selenium), Git</h3>
+                        </li>
+                    </ul>
+
+                    <ul class="isolated-icons">
+                        <a href="https://github.com/JakeGerber/VideoGameAnalyzer" target="_blank">
+                            <img src="images/github.png" class="img-icon">
+                        </a>
+                    </ul> 
+                </div>
+
+
+                <div>
+                    <img src="images/chess.jpg" class="img-test">
+                    <br />
+                    <h2 class="centerimg"><b>Chess Convolutional Neural Network Automator</b></h2>
+                    <ul>
+                        <li>
+                            <h3>Automated the training of two Convolutional Neural Networks which visually extract chess board game states with a
+                                97% accuracy based on training data. Allows for easy parameter adjustment and saves test results in JSON format.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Skills: Keras, Python (OpenCV), JSON, Git</h3>
+                        </li>
+                    </ul>
+
+                    <ul class="isolated-icons">
+                        <a href="https://github.com/JakeGerber/VisionBoardDemo3" target="_blank">
+                            <img src="images/github.png" class="img-icon">
+                        </a>
+                    </ul> 
+                </div>
+
+
                 <div>
                     <img src="images/steam-game-compiler.png" class="img-test">
                     <br />
-                    <h2 class="centerimg">Full-Stack Steam Statistics App</h2>
-                    <li>Developed an application using a React.js frontend and Flask backend utilizing Steam’s API to
-                        digest normally scattered and hidden game statistics.</li>
-                    <li>Deployed to a Linux server utilizing Nginx and Waitress.</li>
-                    <li>Hacker's Choice - HackUCI 2022</li>
-    
-                    <a href="https://devpost.com/software/steam-search-engine">-Website-</a>
-                    <a href="https://github.com/jrock-3/HackUCIWinter2022">-Github-</a>
-                    <a href="#">Video Link</a>
-                    <a href="#">learn more</a>
+                    <h2 class="centerimg"><b>Full-Stack Steam Statistics App</b></h2>
+                    <ul>
+                        <li>
+                            <h3>Aggregates individual video game data such as live player counts, community articles, and exact like and dislike
+                                numbers to allow users to make informed purchasing decisions about video games they are interested in.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Hacker’s Choice Winner - HackUCI 2022 (UCI’s Hackathon)</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Skills: Skills: JavaScript (React.js), Python (Flask), Steam API, Git</h3>
+                        </li>
+                    </ul>
+
+                    <ul class="isolated-icons">
+                        <a href="https://github.com/jrock-3/HackUCIWinter2022" target="_blank">
+                            <img src="images/github.png" class="img-icon">
+                        </a>
+                        <a href="https://devpost.com/software/steam-search-engine" target="_blank">
+                            <img src="images/devpost.png" class="img-icon">
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=kpiCoOxJKvY&ab_channel=JustinLiao" target="_blank">
+                            <img src="images/yt.png" class="img-icon">
+                        </a>
+                    </ul> 
                 </div>
+
 
                 <div>
                     <img src="images/webjam.png" class="img-test">
-                    <h2 class="centerimg">Higher/Lower YouTube Views Guessing Game</h2>
-                    <p>Created a game using React.js and YouTube’s API which prompts users to pick between two randomly
-                        selected videos and guess which one has higher view count</p>
-                    <a
-                        href="https://www.cs.uci.edu/icssc-hosts-annual-webjam-competition-to-teach-web-development/">-Article-</a>
-                    <a href="https://github.com/JakeGerber/WebJam2021">-Github-</a>
-                    <a href="#">learn more</a>
+                    <h2 class="centerimg"><b>Higher/Lower YouTube Views Guessing Game</b></h2>
+                    <ul>
+                        <li>
+                            <h3>Displays two randomly selected YouTube videos and prompts users to guess which has the higher view count.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>1st Place Winner - UCI WebJam 2021 (UCI’s Web Development Competition)</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Skills: JavaScript (React.js), YouTube API, Git</h3>
+                        </li>
+                    </ul>
+
+                    <ul class="isolated-icons">
+                        <a href="https://github.com/JakeGerber/WebJam2021" target="_blank">
+                            <img src="images/github.png" class="img-icon">
+                        </a>
+                        <a href="https://www.cs.uci.edu/icssc-hosts-annual-webjam-competition-to-teach-web-development/" target="_blank">
+                            <img src="images/news2.png" class="img-icon">
+                        </a>
+                    </ul> 
                 </div>
-    
 
                 <div>
                     <img src="images/pong.png" class="img-test">
-                    <h2 class="centerimg">Pong With a Twist Game</h2>
-                    <li>Coded a game of pong in C# and Unity where a barcode scanner could scan different products to affect gameplay.</li>
-                    <li>Won best game hack out of 150 participants at Angelhacks 2019</li>
-                    <a href="https://www.theacorn.com/articles/theres-a-hack-for-that/">-Article-</a>
-                    <a href="#">learn more</a>
+                    <br />
+                    <h2 class="centerimg"><b>Pong With a Twist Game</b></h2>
+                    <ul>
+                        <li>
+                            <h3>Coded a game of pong in C# and Unity where a barcode scanner could scan different products to affect gameplay.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Best Game Hack - Angelhacks 2019 (150 participants)</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Skills: C#, Unity, Git</h3>
+                        </li>
+                    </ul>
+
+                    <ul class="isolated-icons">
+                        <a href="https://www.theacorn.com/articles/theres-a-hack-for-that/" target="_blank">
+                            <img src="images/news2.png" class="img-icon">
+                        </a>
+                    </ul> 
                 </div>
 
-                
+
+                <div>
+                    <img src="images/layout.png" class="img-test">
+                    <br />
+                    <h2 class="centerimg"><b>Security Breach Warning App</b></h2>
+                    <ul>
+                        <li>
+                            <h3>Displays up-to-date information on data breaches and job layoffs that may affect the target user. This information is displayed in a human-friendly format and also shows an infographic on data breaches by state.</h3>
+                        </li>
+                        <br>
+                        <li>
+                            <h3>Skills: JavaScript (Node.js, Leaflet.js), Python (Pandas, Selenium), Git</h3>
+                        </li>
+                    </ul>
+
+                    <ul class="isolated-icons">
+                        <a href="https://github.com/JakeGerber/LA_Hacks_2023" target="_blank">
+                            <img src="images/github.png" class="img-icon">
+                        </a>
+                        <a href="https://breachwarning.netlify.app/" target="_blank">
+                            <img src="images/play.png" class="img-icon">
+                        </a>
+                        <a href="https://devpost.com/software/breachwarning" target="_blank">
+                            <img src="images/devpost.png" class="img-icon">
+                        </a>
+                    </ul> 
+                </div>             
             </div>
         </div>
     </div>
