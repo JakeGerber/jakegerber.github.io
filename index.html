@@ -1,377 +1,644 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
-
 <head>
-    <title>Jake's Website</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="images/smileyface.jpg" />
+    <meta name="description" content="Jake Gerber — Computer Science student, software developer, and portfolio.">
+    <title>Jake Gerber | Software Developer</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/smileyface.jpg">
     <script src="https://kit.fontawesome.com/dba9e690f0.js" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --bg: #080b12;
+            --surface: #101520;
+            --surface-2: #151c29;
+            --text: #f5f7fb;
+            --muted: #a8b0c0;
+            --accent: #6ea8fe;
+            --accent-2: #9b7cff;
+            --border: rgba(255,255,255,.09);
+            --shadow: 0 20px 60px rgba(0,0,0,.25);
+            --max: 1120px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(110,168,254,.12), transparent 28%),
+                radial-gradient(circle at 90% 10%, rgba(155,124,255,.10), transparent 25%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            width: min(100% - 40px, var(--max));
+            margin: auto;
+        }
+
+        /* Navigation */
+        nav {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: var(--muted);
+            font-size: .92rem;
+            font-weight: 600;
+            transition: .2s;
+        }
+
+        nav ul li a:hover { color: var(--text); }
+
+        .menu-icon { display: none; font-size: 1.4rem; cursor: pointer; }
+
+        /* Hero */
+        #header { min-height: 100vh; }
+
+        .hero {
+            min-height: calc(100vh - 82px);
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 70px 0 110px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            padding: 7px 13px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--muted);
+            background: rgba(255,255,255,.03);
+            font-size: .82rem;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.2rem, 8vw, 6.8rem);
+            line-height: .95;
+            letter-spacing: -.07em;
+            max-width: 900px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 26px auto 0;
+            color: var(--muted);
+            font-size: 1.12rem;
+        }
+
+        .hero-actions {
+            margin-top: 34px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 19px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            font-weight: 700;
+            font-size: .9rem;
+            transition: transform .2s, background .2s, border-color .2s;
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        .btn.primary {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .btn.secondary {
+            background: rgba(255,255,255,.04);
+            color: var(--text);
+        }
+
+        section { padding: 110px 0; }
+
+        .section-heading { margin-bottom: 45px; }
+
+        .section-label {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            font-size: .75rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -.045em;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .about-copy h3 {
+            font-size: 1.35rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .about-copy p { color: var(--muted); }
+
+        .socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .social {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            transition: .2s;
+        }
+
+        .social:hover {
+            transform: translateY(-3px);
+            border-color: rgba(110,168,254,.5);
+        }
+
+        .social img { width: 22px; height: 22px; object-fit: contain; }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,.12);
+            transition: transform .25s, border-color .25s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(110,168,254,.35);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            background: var(--surface-2);
+        }
+
+        .card-content { padding: 24px; }
+
+        .card h3 {
+            font-size: 1.08rem;
+            line-height: 1.35;
+            margin-bottom: 15px;
+        }
+
+        .card p, .card li {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .card ul {
+            padding-left: 18px;
+            margin-bottom: 18px;
+        }
+
+        .card li + li { margin-top: 9px; }
+
+        .date {
+            color: var(--accent);
+            font-size: .78rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 17px;
+        }
+
+        .skill {
+            padding: 5px 9px;
+            border-radius: 7px;
+            background: rgba(110,168,254,.08);
+            border: 1px solid rgba(110,168,254,.14);
+            color: #cbdcff;
+            font-size: .72rem;
+            font-weight: 600;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+        }
+
+        .card-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(255,255,255,.05);
+            transition: .2s;
+        }
+
+        .card-links a:hover { background: rgba(255,255,255,.12); }
+        .card-links img { width: 18px; height: 18px; object-fit: contain; }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 0;
+            color: var(--muted);
+            font-size: .82rem;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 220px 1fr; gap: 35px; }
+        }
+
+        @media (max-width: 650px) {
+            .container { width: min(100% - 28px, var(--max)); }
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -260px;
+                width: 240px;
+                height: 100vh;
+                padding: 90px 30px;
+                background: #0d121c;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 22px;
+                transition: right .25s;
+                z-index: 10;
+                box-shadow: -20px 0 60px rgba(0,0,0,.35);
+            }
+
+            nav ul.open { right: 0; }
+            .menu-icon { display: block; }
+            .close-icon {
+                position: absolute;
+                top: 28px;
+                right: 28px;
+            }
+
+            .hero { padding-top: 35px; }
+            .hero h1 { font-size: clamp(3rem, 17vw, 5rem); }
+            section { padding: 80px 0; }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image {
+                width: 180px;
+                margin: auto;
+            }
+
+            .socials { justify-content: center; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <img src="" class="logo">
-                <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Experience</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <i class="fas fa-times" onclick="closemenu()"></i>
-                </ul>
-                <i class="fas fa-bars" onclick="openmenu()"></i>
-            </nav>
-            <div class="header-text">
-                <h1>Hi, I'm <span>Jake Gerber</span></h1>
-                <p>Computer Science Student at UC Irvine</p>
-                <!--include icons for github, itch, linkedin, etc.-->
-            </div>
-        </div>
-    </div>
-    <!--About-->
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <img src="images/user.jpg">
-                </div>
-                <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
-                    <h3>I'm Jake, a computer science student UC Irvine! I'm passionate about data and software
-                        development! Take a look at some of my experience and projects below!</h3>
-                        <br/><br/>
-                        <ul class="isolated-icons">
-                            <a href="https://www.linkedin.com/in/jakegerber1/" target="_blank">
-                                <img src="images/linkedin.png" class="img-icon">
-                            </a>
-                            <a href="https://github.com/JakeGerber" target="_blank">
-                                <img src="images/github.png" class="img-icon">
-                            </a>
-                        </ul> 
-    
+<header id="header">
+    <div class="container">
+        <nav>
+            <div class="menu-icon" onclick="openMenu()"><i class="fas fa-bars"></i></div>
 
-                    <!--
-                    <div class="tab-titles">
-                        <p class="tab-links" onClick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onClick="opentab('education')">Education</p>
-                        <p class="tab-links active-link" onClick="opentab('skills')">Skills</p>
-                    </div>
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>Languages</span><br>Python, JavaScript, Lua, C#, Java, C++</li>
-                            <li><span>Tools/Frameworks</span><br>React.js, Node.js, Flask, Docker, MySQL, MongoDB,
-                                Linux, Nginx, REST APIs, Git</li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>Software Engineer Intern (Virtual Reality)</span><br>BAE Systems</li>
-                            <li><span>WordPress Administrator</span><br>University of California, Irvine</li>
+            <ul id="sideMenu">
+                <li class="menu-icon close-icon" onclick="closeMenu()"><i class="fas fa-times"></i></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </nav>
 
-                            <li><span>Programming Workshop Developer</span><br>Hack Club</li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>B.S., Computer Science</span><br>University of California, Irvine</li>
-                            <li><span>Relevant Coursework</span><br></li>
-                            <li>- CS 122A - Introduction to Databases (MySQL)</li>
-                            <li>- CS 161 - Design and Analysis of Algorithms</li>
-                            <li>- ICS 32 - Programming with Software Libraries (Python)</li>
-                            <li>- ICS 33 - Intermediate Programming (Python)</li>
-                            <li>- ICS 45C - Programming in C/C++</li>
-                            <li>- ICS 45J - Programming in Java</li>
-                            <li>- Data Structure Implementation (C++)</li>
-                            <li>- ICS 6B - Boolean Logic and Discrete Structures</li>
-                        </ul>
-                    </div>
-                    -->
+        <div class="hero">
+            <div>
+                <div class="eyebrow">Software Developer</div>
+                <h1>Hi, I'm <span>Jake Gerber.</span></h1>
+                <p>
+                    I build software, work with data, and enjoy turning ideas into useful applications.
+                    Explore my experience and projects below.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="#projects">View Projects</a>
+                    <a class="btn secondary" href="#about">About Me</a>
                 </div>
             </div>
         </div>
     </div>
+</header>
 
-    <!--Services-->
-    <div id="services">
-        <div class="container">
-            <h1 class="sub-title">Work Experience</h1>
-            <div class="services-list">
-                <!-- BAE Systems Experience -->
-                <div>
-                    <img src="images/bae-systems.png" class="img-test">
-                    <h2 style="text-align: center;"><b>Software Engineer Intern</b><br>(Virtual Reality Team)<br>[BAE Systems]</h2>
-                    <h3 style="text-align: center;">June 2023 - September 2023<br/>Rockville, Maryland</h3>
-                    <br /><br />
-                    <ul>
-                        <li>
-                            <h3>Wrote scripts to extract and display metadata of CAD models and 360-images for virtual reality developers, allowing a greater understanding of the origin and creation of implemented assets in the Visionary Render VR program.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Migrated submarine safety data from multiple Excel sheets into a MySQL database which allowed for easier data retrieval and ensured that employees were accessing the most up-to-date data.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Created dashboards that showed the distribution of different submarine part manufacturers which allowed higher-ups to better plan their supply chain.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Skills: Lua, Python (Pandas, RegEx, Matplotlib), SQL</h3>
-                        </li>
-                    </ul>
-                </div>
-    
-                <!-- UC Irvine WordPress Experience -->
-                <div>
-                    <img src="images/uci_ovptl.jpg" class="img-test">
-                    <h2 style="text-align: center;"><b>WordPress Administrator</b><br>[UC Irvine]</h2>
-                    <h3 style="text-align: center;">April 2023 - June 2024<br/>Irvine, California</h3>
-                    <br /><br />
-                    <ul>
-                        <li>
-                            <h3>Built, migrated, and maintained 50+ WordPress sites for OVPTL office to help UC Irvine students and staff access academic information, promote their work, and maintain an accessible web experience.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Skills: WordPress, HTML, CSS, Divi.</h3>
-                        </li>
-                    </ul>
-                </div>
-    
-                <!-- Hack Club Experience -->
-                <!-- Need to Update -->
-                <div>
-                    <img src="images/hack_club.png" class="img-test">
-                    <h2 style="text-align: center;"><b>Programming Workshop Developer</b><br>[Hack Club]</h2>
-                    <h3 style="text-align: center;">September 2020 - February 2021<br/>Remote</h3>
-                    <br /><br />
-                    <ul>
-                        <li>
-                            <h3>Produced 10 project workshops used by 39,000 high-school students to teach programming and technical skills.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Included a Discord Custom Message Bot Workshop, a Battleship Workshop, and a Drawing Program Workshop.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Skills: C#, JavaScript (Discord.js), Python (Turtle)</h3>
-                        </li>
-                    </ul>
+<section id="about">
+    <div class="container">
+        <div class="section-heading">
+            <div class="section-label">01 — About</div>
+            <h2>A little about me.</h2>
+        </div>
 
-                    <ul class="isolated-icons">
-                        <a href="https://workshops.hackclub.com/" target="_blank">
-                            <img src="images/play.png" class="img-icon">
-                        </a>
-                    </ul> 
+        <div class="about-grid">
+            <img src="images/user.jpg" alt="Jake Gerber" class="about-image">
+
+            <div class="about-copy">
+                <h3>
+                    I'm Jake, a software developer.
+                </h3>
+                <p>
+                    Take a look at some of my work below.
+                </p>
+
+                <div class="socials">
+                    <a class="social" href="https://www.linkedin.com/in/jakegerber1/" target="_blank" rel="noopener">
+                        <img src="images/linkedin.png" alt="LinkedIn">
+                    </a>
+                    <a class="social" href="https://github.com/JakeGerber" target="_blank" rel="noopener">
+                        <img src="images/github.png" alt="GitHub">
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div id="portfolio">
-        <div class="container">
-            <h1 class="sub-title">Projects</h1>
-            <div class="services-list">
+</section>
 
-                <div>
-                    <img src="images/price-charting.png" class="img-test">
-                    <br />
-                    <h2 class="centerimg"><b>Video Game Analyzer / Price Tracker</b></h2>
-                    <ul>
-                        <li>
-                            <h3>Uploaded vintage video game cover photos are utilized to return key information that collectors use to make
-                                purchasing decisions. Information includes current market price, gaming system, and game developer.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Skills: AWS (S3 Buckets, Textract, DynamoDB), Python (OpenCV, BeautifulSoup, Selenium), Git</h3>
-                        </li>
-                    </ul>
+<section id="experience">
+    <div class="container">
+        <div class="section-heading">
+            <div class="section-label">02 — Experience</div>
+            <h2>Where I've worked.</h2>
+        </div>
 
-                    <ul class="isolated-icons">
-                        <a href="https://github.com/JakeGerber/VideoGameAnalyzer" target="_blank">
-                            <img src="images/github.png" class="img-icon">
-                        </a>
-                    </ul> 
+        <div class="card-grid">
+            <article class="card">
+                <img src="images/amazon.jpg" alt="Amazon" class="card-image">
+                <div class="card-content">
+                    <h3>Software Developer — Applied AI</h3>
+                    <div class="date">July 2025 – Present · Bellevue, Washington</div>
                 </div>
+            </article>
 
-
-                <div>
-                    <img src="images/chess.jpg" class="img-test">
-                    <br />
-                    <h2 class="centerimg"><b>Chess Convolutional Neural Network Automator</b></h2>
+            <article class="card">
+                <img src="images/bae-systems.png" alt="BAE Systems" class="card-image">
+                <div class="card-content">
+                    <h3>Software Engineer Intern — Virtual Reality</h3>
+                    <div class="date">June 2023 – September 2023 · Rockville, Maryland</div>
                     <ul>
-                        <li>
-                            <h3>Automated the training of two Convolutional Neural Networks which visually extract chess board game states with a
-                                97% accuracy based on training data. Allows for easy parameter adjustment and saves test results in JSON format.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Skills: Keras, Python (OpenCV), JSON, Git</h3>
-                        </li>
+                        <li>Wrote scripts to extract and display metadata of CAD models and 360-images for VR developers.</li>
+                        <li>Migrated submarine safety data from multiple Excel sheets into a MySQL database.</li>
+                        <li>Created dashboards showing submarine part manufacturer distributions for supply-chain planning.</li>
                     </ul>
-
-                    <ul class="isolated-icons">
-                        <a href="https://github.com/JakeGerber/VisionBoardDemo3" target="_blank">
-                            <img src="images/github.png" class="img-icon">
-                        </a>
-                    </ul> 
+                    <div class="skills">
+                        <span class="skill">Lua</span><span class="skill">Python</span>
+                        <span class="skill">Pandas</span><span class="skill">SQL</span>
+                        <span class="skill">Matplotlib</span>
+                    </div>
                 </div>
+            </article>
 
-
-                <div>
-                    <img src="images/steam-game-compiler.png" class="img-test">
-                    <br />
-                    <h2 class="centerimg"><b>Full-Stack Steam Statistics App</b></h2>
+            <article class="card">
+                <img src="images/uci_ovptl.jpg" alt="UC Irvine" class="card-image">
+                <div class="card-content">
+                    <h3>WordPress Administrator — UC Irvine</h3>
+                    <div class="date">April 2023 – June 2024 · Irvine, California</div>
                     <ul>
-                        <li>
-                            <h3>Aggregates individual video game data such as live player counts, community articles, and exact like and dislike
-                                numbers to allow users to make informed purchasing decisions about video games they are interested in.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Hacker’s Choice Winner - HackUCI 2022 (UCI’s Hackathon)</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Skills: JavaScript (React.js), Python (Flask), Steam API, Git</h3>
-                        </li>
+                        <li>Built, migrated, and maintained 50+ WordPress sites for the OVPTL office.</li>
+                        <li>Helped students and staff access academic information and maintain an accessible web experience.</li>
                     </ul>
-
-                    <ul class="isolated-icons">
-                        <a href="https://github.com/jrock-3/HackUCIWinter2022" target="_blank">
-                            <img src="images/github.png" class="img-icon">
-                        </a>
-                        <a href="https://devpost.com/software/steam-search-engine" target="_blank">
-                            <img src="images/devpost.png" class="img-icon">
-                        </a>
-                        <a href="https://www.youtube.com/watch?v=kpiCoOxJKvY&ab_channel=JustinLiao" target="_blank">
-                            <img src="images/yt.png" class="img-icon">
-                        </a>
-                    </ul> 
+                    <div class="skills">
+                        <span class="skill">WordPress</span><span class="skill">HTML</span>
+                        <span class="skill">CSS</span><span class="skill">Divi</span>
+                    </div>
                 </div>
-
-
-                <div>
-                    <img src="images/webjam.png" class="img-test">
-                    <h2 class="centerimg"><b>Higher/Lower YouTube Views Guessing Game</b></h2>
-                    <ul>
-                        <li>
-                            <h3>Displays two randomly selected YouTube videos and prompts users to guess which has the higher view count.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>1st Place Winner - UCI WebJam 2021 (UCI’s Web Development Competition)</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Skills: JavaScript (React.js), YouTube API, Git</h3>
-                        </li>
-                    </ul>
-
-                    <ul class="isolated-icons">
-                        <a href="https://github.com/JakeGerber/WebJam2021" target="_blank">
-                            <img src="images/github.png" class="img-icon">
-                        </a>
-                        <a href="https://www.cs.uci.edu/icssc-hosts-annual-webjam-competition-to-teach-web-development/" target="_blank">
-                            <img src="images/news2.png" class="img-icon">
-                        </a>
-                    </ul> 
-                </div>
-
-                <div>
-                    <img src="images/pong.png" class="img-test">
-                    <br />
-                    <h2 class="centerimg"><b>Pong With a Twist Game</b></h2>
-                    <ul>
-                        <li>
-                            <h3>Coded a game of pong in C# and Unity where a barcode scanner could scan different products to affect gameplay.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Best Game Hack - Angelhacks 2019 (150 participants)</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Skills: C#, Unity, Git</h3>
-                        </li>
-                    </ul>
-
-                    <ul class="isolated-icons">
-                        <a href="https://www.theacorn.com/articles/theres-a-hack-for-that/" target="_blank">
-                            <img src="images/news2.png" class="img-icon">
-                        </a>
-                    </ul> 
-                </div>
-
-
-                <div>
-                    <img src="images/layout.png" class="img-test">
-                    <br />
-                    <h2 class="centerimg"><b>Security Breach Warning App</b></h2>
-                    <ul>
-                        <li>
-                            <h3>Displays up-to-date information on data breaches and job layoffs that may affect the target user. This information is displayed in a human-friendly format and also shows an infographic on data breaches by state.</h3>
-                        </li>
-                        <br>
-                        <li>
-                            <h3>Skills: JavaScript (Node.js, Leaflet.js), Python (Pandas, Selenium), Git</h3>
-                        </li>
-                    </ul>
-
-                    <ul class="isolated-icons">
-                        <a href="https://github.com/JakeGerber/LA_Hacks_2023" target="_blank">
-                            <img src="images/github.png" class="img-icon">
-                        </a>
-                        <a href="https://breachwarning.netlify.app/" target="_blank">
-                            <img src="images/play.png" class="img-icon">
-                        </a>
-                        <a href="https://devpost.com/software/breachwarning" target="_blank">
-                            <img src="images/devpost.png" class="img-icon">
-                        </a>
-                    </ul> 
-                </div>             
-            </div>
+            </article>
         </div>
     </div>
-    
+</section>
 
+<section id="projects">
+    <div class="container">
+        <div class="section-heading">
+            <div class="section-label">03 — Projects</div>
+            <h2>Things I've built.</h2>
+        </div>
 
+        <div class="card-grid">
+            <article class="card">
+                <img src="images/price-charting.png" alt="Video Game Analyzer" class="card-image">
+                <div class="card-content">
+                    <h3>Video Game Analyzer / Price Tracker</h3>
+                    <ul>
+                        <li>Uses vintage video game cover photos to return market price, gaming system, and developer information.</li>
+                    </ul>
+                    <div class="skills">
+                        <span class="skill">AWS S3</span><span class="skill">Textract</span>
+                        <span class="skill">DynamoDB</span><span class="skill">Python</span>
+                        <span class="skill">OpenCV</span><span class="skill">Selenium</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/JakeGerber/VideoGameAnalyzer" target="_blank" rel="noopener">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                    </div>
+                </div>
+            </article>
 
+            <article class="card">
+                <img src="images/chess.jpg" alt="Chess CNN" class="card-image">
+                <div class="card-content">
+                    <h3>Chess Convolutional Neural Network Automator</h3>
+                    <ul>
+                        <li>Automated training of two CNNs that visually extract chess board states with 97% accuracy.</li>
+                        <li>Supports parameter adjustment and saves test results in JSON format.</li>
+                    </ul>
+                    <div class="skills">
+                        <span class="skill">Keras</span><span class="skill">Python</span>
+                        <span class="skill">OpenCV</span><span class="skill">JSON</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/JakeGerber/VisionBoardDemo3" target="_blank" rel="noopener">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-    <script>
-        var tablinks = document.getElementsByClassName("tab-links");
-        var tabcontents = document.getElementsByClassName("tab-contents");
+            <article class="card">
+                <img src="images/steam-game-compiler.png" alt="Steam Statistics App" class="card-image">
+                <div class="card-content">
+                    <h3>Full-Stack Steam Statistics App</h3>
+                    <ul>
+                        <li>Aggregates live player counts, community articles, and like/dislike statistics to help users evaluate games.</li>
+                        <li><strong>Hacker's Choice Winner</strong> — HackUCI 2022.</li>
+                    </ul>
+                    <div class="skills">
+                        <span class="skill">React</span><span class="skill">Python</span>
+                        <span class="skill">Flask</span><span class="skill">Steam API</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/jrock-3/HackUCIWinter2022" target="_blank" rel="noopener">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                        <a href="https://devpost.com/software/steam-search-engine" target="_blank" rel="noopener">
+                            <img src="images/devpost.png" alt="Devpost">
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=kpiCoOxJKvY&ab_channel=JustinLiao" target="_blank" rel="noopener">
+                            <img src="images/yt.png" alt="YouTube">
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-        function opentab(tabname) {
-            for (tablink of tablinks) {
-                tablink.classList.remove("active-link");
-            }
-            for (tabcontent of tabcontents) {
-                tabcontent.classList.remove("active-tab");
-            }
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
-        }
-    </script>
+            <article class="card">
+                <img src="images/webjam.png" alt="YouTube Views Guessing Game" class="card-image">
+                <div class="card-content">
+                    <h3>Higher/Lower YouTube Views Guessing Game</h3>
+                    <ul>
+                        <li>Displays two randomly selected YouTube videos and asks users to guess which has more views.</li>
+                        <li><strong>1st Place Winner</strong> — UCI WebJam 2021.</li>
+                    </ul>
+                    <div class="skills">
+                        <span class="skill">React</span><span class="skill">JavaScript</span>
+                        <span class="skill">YouTube API</span><span class="skill">Git</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/JakeGerber/WebJam2021" target="_blank" rel="noopener">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                        <a href="https://www.cs.uci.edu/icssc-hosts-annual-webjam-competition-to-teach-web-development/" target="_blank" rel="noopener">
+                            <img src="images/news2.png" alt="Article">
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-    <script>
-        var sidemeu = document.getElementById("sidemenu");
+            <article class="card">
+                <img src="images/pong.png" alt="Pong With a Twist" class="card-image">
+                <div class="card-content">
+                    <h3>Pong With a Twist</h3>
+                    <ul>
+                        <li>Created a C# and Unity Pong game where a barcode scanner could scan products to affect gameplay.</li>
+                        <li><strong>Best Game Hack</strong> — Angelhacks 2019.</li>
+                    </ul>
+                    <div class="skills">
+                        <span class="skill">C#</span><span class="skill">Unity</span><span class="skill">Git</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://www.theacorn.com/articles/theres-a-hack-for-that/" target="_blank" rel="noopener">
+                            <img src="images/news2.png" alt="Article">
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-        function openmenu() {
-            sidemeu.style.right = "0";
-        }
-        function closemenu() {
-            sidemeu.style.right = "-200px";
-        }
-    </script>
+            <article class="card">
+                <img src="images/layout.png" alt="Security Breach Warning App" class="card-image">
+                <div class="card-content">
+                    <h3>Security Breach Warning App</h3>
+                    <ul>
+                        <li>Displays current data-breach and job-layoff information in a human-friendly format, including state-level visualizations.</li>
+                    </ul>
+                    <div class="skills">
+                        <span class="skill">Node.js</span><span class="skill">Leaflet.js</span>
+                        <span class="skill">Python</span><span class="skill">Pandas</span><span class="skill">Selenium</span>
+                    </div>
+                    <div class="card-links">
+                        <a href="https://github.com/JakeGerber/LA_Hacks_2023" target="_blank" rel="noopener">
+                            <img src="images/github.png" alt="GitHub">
+                        </a>
+                        <a href="https://breachwarning.netlify.app/" target="_blank" rel="noopener">
+                            <img src="images/play.png" alt="Live site">
+                        </a>
+                        <a href="https://devpost.com/software/breachwarning" target="_blank" rel="noopener">
+                            <img src="images/devpost.png" alt="Devpost">
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
 
+<footer>
+    <div class="container">© 2026 Jake Gerber</div>
+</footer>
+
+<script>
+    const sideMenu = document.getElementById("sideMenu");
+
+    function openMenu() {
+        sideMenu.classList.add("open");
+    }
+
+    function closeMenu() {
+        sideMenu.classList.remove("open");
+    }
+
+    document.querySelectorAll("#sideMenu a").forEach(link => {
+        link.addEventListener("click", closeMenu);
+    });
+</script>
 </body>
-
 </html>
