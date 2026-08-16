@@ -175,6 +175,12 @@
             border-radius: 24px;
             border: 1px solid var(--border);
             box-shadow: var(--shadow);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: scale(1.05);
+            border-color: rgba(110, 168, 254, 0.4);
         }
 
         .about-copy h3 {
@@ -230,11 +236,21 @@
             border-color: rgba(110,168,254,.35);
         }
 
+        /* Banner adjustments: clean aspect ratio fit */
         .card-image {
             width: 100%;
-            height: 190px;
+            aspect-ratio: 16 / 9;
+            height: auto;
             object-fit: cover;
+            object-position: center;
             background: var(--surface-2);
+            display: block;
+        }
+
+        /* Optional helper for logos that need extra breathing room without cropping */
+        .card-image.contain {
+            object-fit: contain;
+            padding: 16px;
         }
 
         .card-content { padding: 24px; }
@@ -242,7 +258,14 @@
         .card h3 {
             font-size: 1.08rem;
             line-height: 1.35;
-            margin-bottom: 15px;
+            margin-bottom: 4px;
+        }
+
+        .company-subtitle {
+            color: var(--muted);
+            font-size: .88rem;
+            font-weight: 500;
+            margin-bottom: 12px;
         }
 
         .card p, .card li {
@@ -433,17 +456,19 @@
 
         <div class="card-grid">
             <article class="card">
-                <img src="images/amazon.jpg" alt="Amazon" class="card-image">
+                <img src="images/amazon.jpg" alt="Amazon" class="card-image contain">
                 <div class="card-content">
-                    <h3>Software Developer — Applied AI</h3>
+                    <h3>Software Development Engineer</h3>
+                    <div class="company-subtitle">Amazon — Applied AI Team</div>
                     <div class="date">July 2025 – Present · Bellevue, Washington</div>
                 </div>
             </article>
 
             <article class="card">
-                <img src="images/bae-systems.png" alt="BAE Systems" class="card-image">
+                <img src="images/bae-systems.png" alt="BAE Systems" class="card-image contain">
                 <div class="card-content">
-                    <h3>Software Engineer Intern — Virtual Reality</h3>
+                    <h3>Software Engineer Intern</h3>
+                    <div class="company-subtitle">BAE Systems — Virtual Reality Team</div>
                     <div class="date">June 2023 – September 2023 · Rockville, Maryland</div>
                     <ul>
                         <li>Wrote scripts to extract and display metadata of CAD models and 360-images for VR developers.</li>
@@ -459,9 +484,10 @@
             </article>
 
             <article class="card">
-                <img src="images/uci_ovptl.jpg" alt="UC Irvine" class="card-image">
+                <img src="images/uci_ovptl.jpg" alt="UC Irvine" class="card-image contain">
                 <div class="card-content">
-                    <h3>WordPress Administrator — UC Irvine</h3>
+                    <h3>WordPress Administrator</h3>
+                    <div class="company-subtitle">UC Irvine — OVPTL Office</div>
                     <div class="date">April 2023 – June 2024 · Irvine, California</div>
                     <ul>
                         <li>Built, migrated, and maintained 50+ WordPress sites for the OVPTL office.</li>
@@ -546,29 +572,6 @@
                         </a>
                         <a href="https://www.youtube.com/watch?v=kpiCoOxJKvY&ab_channel=JustinLiao" target="_blank" rel="noopener">
                             <img src="images/yt.png" alt="YouTube">
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card">
-                <img src="images/webjam.png" alt="YouTube Views Guessing Game" class="card-image">
-                <div class="card-content">
-                    <h3>Higher/Lower YouTube Views Guessing Game</h3>
-                    <ul>
-                        <li>Displays two randomly selected YouTube videos and asks users to guess which has more views.</li>
-                        <li><strong>1st Place Winner</strong> — UCI WebJam 2021.</li>
-                    </ul>
-                    <div class="skills">
-                        <span class="skill">React</span><span class="skill">JavaScript</span>
-                        <span class="skill">YouTube API</span><span class="skill">Git</span>
-                    </div>
-                    <div class="card-links">
-                        <a href="https://github.com/JakeGerber/WebJam2021" target="_blank" rel="noopener">
-                            <img src="images/github.png" alt="GitHub">
-                        </a>
-                        <a href="https://www.cs.uci.edu/icssc-hosts-annual-webjam-competition-to-teach-web-development/" target="_blank" rel="noopener">
-                            <img src="images/news2.png" alt="Article">
                         </a>
                     </div>
                 </div>
